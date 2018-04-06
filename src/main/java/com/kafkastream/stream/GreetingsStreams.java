@@ -1,7 +1,8 @@
 package com.kafkastream.stream;
 
-import com.kafkastream.model.Greetings;
+import com.kafkastream.event.GreetingsEvent;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KTable;
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
@@ -13,7 +14,7 @@ public interface GreetingsStreams
     String OUTPUT = "greetings-out";
 
     @Input(INPUT)
-    KStream<String,Greetings> incomingGreetings();
+    KStream<String,GreetingsEvent> incomingGreetings();
 
     @Output(OUTPUT)
     MessageChannel outgoingGreetings();

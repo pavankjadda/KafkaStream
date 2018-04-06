@@ -12,6 +12,7 @@ public class GreetingsEvent
 
     }
 
+
     public GreetingsEvent(Greetings greetings, String message)
     {
         this.greetings = greetings;

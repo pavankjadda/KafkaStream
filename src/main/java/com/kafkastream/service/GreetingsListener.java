@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.ForeachAction;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Printed;
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.StreamListener;
@@ -18,16 +19,10 @@ import org.springframework.stereotype.Component;
 public class GreetingsListener
 {
     @StreamListener
-    public void handleGreetings(@Input(GreetingsStreams.INPUT)   KStream<String,GreetingsEvent>    greetingsEventKStream)
+    public void handleGreetings(@Input(GreetingsStreams.INPUT) KStream<String,GreetingsEvent> greetingsEventKStream)
     {
-        greetingsEventKStream.foreach(new ForeachAction<String, GreetingsEvent>() {
-            @Override
-            public void apply(String key, GreetingsEvent value)
-            {
-                log.info(key + ": " + value);
-                //System.out.println(key + ": " + value);
-            }
-        });
+        log.info("Received GreetingsEvent");
+        greetingsEventKStream.foreach(((key, value) -> System.out.print("Greetings Message: "+value.getMessage())));
 
     }
 }

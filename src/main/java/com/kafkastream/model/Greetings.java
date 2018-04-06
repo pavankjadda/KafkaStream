@@ -1,15 +1,44 @@
 package com.kafkastream.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-//Lombok creates getter, setter, tostring and builder methods
-
-@Getter @Setter @ToString @Builder
 public class Greetings
 {
     private long timestamp;
     private String message;
+
+    public Greetings()
+    {
+    }
+
+    public Greetings(String message,long timestamp)
+    {
+        this.timestamp = timestamp;
+        this.message = message;
+    }
+
+    public long getTimestamp()
+    {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp)
+    {
+        this.timestamp = timestamp;
+    }
+
+    public String getMessage()
+    {
+        return message;
+    }
+
+    public void setMessage(String message)
+    {
+        this.message = message;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Greetings{" + "timestamp=" + timestamp + ", message='" + message + '\'' + '}';
+    }
 }

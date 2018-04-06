@@ -4,6 +4,7 @@ spring:
       kafka:
         binder:
           brokers: localhost:9092
+          autoCreateTopics: false
           configuration:
             commit:
               interval:
@@ -17,6 +18,12 @@ spring:
         greetings-in:
           destination: greetings
           contentType: application/json
+          group: greetings_group
+          consumer:
+            header-mode: raw
         greetings-out:
           destination: greetings
           contentType: application/json
+          group: greetings_group
+          producer:
+            header-mode: raw

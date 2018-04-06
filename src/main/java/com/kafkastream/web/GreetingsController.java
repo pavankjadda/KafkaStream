@@ -19,7 +19,7 @@ public class GreetingsController
     public void send()
     {
         String message = "Hello, Welcome to Spring Stream ";
-        Greetings greetings = Greetings.builder().message(message).timestamp(System.currentTimeMillis()).build();
+        Greetings greetings = new Greetings(message,System.currentTimeMillis());
         greetingsSender.send(greetings);
     }
 }
