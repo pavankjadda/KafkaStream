@@ -10,16 +10,6 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class KafkaStreamApplication
 {
-
-    @Autowired
-    Greetings greetings;
-
-    @Autowired
-    LineSplit   lineSplit;
-
-    @Autowired
-    WordCount   wordCount;
-
 	public static void main(String[] args)
     {
 		SpringApplication.run(KafkaStreamApplication.class, args);
@@ -28,8 +18,6 @@ public class KafkaStreamApplication
     @PostConstruct
     public void init()
     {
-        greetings.sendEvent();
-        lineSplit.invokeLineSplit();
-        wordCount.invokeWordCount();
+
     }
 }
