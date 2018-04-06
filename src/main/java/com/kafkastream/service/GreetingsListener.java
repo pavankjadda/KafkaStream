@@ -21,8 +21,6 @@ public class GreetingsListener
     @StreamListener
     public void handleGreetings(@Input(GreetingsStreams.INPUT) KStream<String,GreetingsEvent> greetingsEventKStream)
     {
-        log.info("Received GreetingsEvent");
-        greetingsEventKStream.foreach(((key, value) -> System.out.print("Greetings Message: "+value.getMessage())));
-
+        greetingsEventKStream.foreach((key, value) -> log.info("Greetings Message: "+value.getMessage()));
     }
 }
