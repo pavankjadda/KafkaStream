@@ -1,4 +1,4 @@
-# Kafka Streams with Spring Cloud Stream
+# Kafka Streaming with Spring Cloud Stream
 ## What's this?
 This repository demonstrates Kafka Streams implementation ([not Kafka messaging](https://github.com/pavankjadda/SpringCloudStream-Kafka))using Spring Cloud Stream. 
 
