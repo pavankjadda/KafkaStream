@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 public class GreetingsController
 {
@@ -16,10 +18,12 @@ public class GreetingsController
 
     @GetMapping("/greetings")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void send()
+    public Greetings send()
     {
-        String message = "Hello, Welcome to Spring Stream ";
+        Random  random=new Random();
+        String message = "Message "+random.nextInt();
         Greetings greetings = new Greetings(message,System.currentTimeMillis());
         greetingsSender.send(greetings);
+        return greetings;
     }
 }
