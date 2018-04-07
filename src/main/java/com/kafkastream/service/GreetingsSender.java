@@ -26,7 +26,6 @@ public class GreetingsSender
     {
         GreetingsEvent greetingsEvent = new GreetingsEvent(greetings, greetings.getMessage());
         Message<GreetingsEvent> message = MessageBuilder.withPayload(greetingsEvent).setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON).build();
-        //Message<GreetingsEvent> message = MessageBuilder.withPayload(greetingsEvent).setHeader(KafkaHeaders.MESSAGE_KEY, greetingsEvent.getMessage().getBytes()).build();
         greetingsStreams.outgoingGreetings().send(message);
     }
 
