@@ -1,0 +1,71 @@
+
+curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" --data '
+      "schema":
+        {
+          "namespace": "com.kafkastream.model",
+           "type": "record",
+           "name": "customer-value",
+           "fields":
+             [
+               {
+                 "type": "string",
+                 "name": "customerId"
+               },
+               {
+                 "type": "int",
+                 "name": "firstName"
+               },
+               {
+                 "type": "string",
+                 "name": "lastName"
+               },
+               {
+                 "type": "string",
+                 "name": "email"
+               },
+               {
+                 "type": "string",
+                 "name": "phone"
+               }
+             ]
+         }
+    }
+'      http://localhost:8081/subjects/customer-value/versions
+
+
+
+
+
+//JSON schema
+
+{
+  "schema":
+    {
+      "namespace": "com.kafkastream.model",
+       "type": "record",
+       "name": "Customer",
+       "fields":
+         [
+           {
+             "type": "string",
+             "name": "customerId"
+           },
+           {
+             "type": "int",
+             "name": "firstName"
+           },
+           {
+             "type": "string",
+             "name": "lastName"
+           },
+           {
+             "type": "string",
+             "name": "email"
+           },
+           {
+             "type": "string",
+             "name": "phone"
+           }
+         ]
+     }
+}
